@@ -1,66 +1,91 @@
 SpaceShortcutFlag := False
 CapsLockShortcutFlag := False
 
-SpaceShortcut(normal, shiftModified)
+SpaceShortcut(keys)
 {
+    global SpaceShortcutFlag
     SpaceShortcutFlag := True
-    if(!GetKeyState("Shift"))
-    {
-        Send normal
-    }
-    else
-    {
-        Send shiftModified
-    }
+    Send keys
 }
 
-CapsLockShortcut(normal)
+CapsShortcut(keys, setSpaceFlag := False)
 {
+    global SpaceShortcutFlag
+    global CapsLockShortcutFlag
+    if(setSpaceFlag) {
+        SpaceShortcutFlag := True
+    }
     CapsLockShortcutFlag := True
-    Send normal
+    Send keys
 }
 
-Space & a::SpaceShortcut("1", "{!}")
-Space & s::SpaceShortcut("2", "{@}")
-Space & d::SpaceShortcut("3", "{#}")
-Space & f::SpaceShortcut("4", "{$}")
-Space & g::SpaceShortcut("5", "{%}")
-Space & h::SpaceShortcut("6", "^]")
-Space & j::SpaceShortcut("7", "^e")
-Space & k::SpaceShortcut("8", "^y")
-Space & l::SpaceShortcut("9", "^t")
-Space & `;::SpaceShortcut("0", "{)}")
-Space & '::SpaceShortcut("{Backspace}", "{Backspace}")
+Space & s::SpaceShortcut("0")
+Space & t::SpaceShortcut("1")
+Space & n::SpaceShortcut("2")
+Space & m::SpaceShortcut("3")
+Space & r::SpaceShortcut("4")
+Space & l::SpaceShortcut("5")
+Space & j::SpaceShortcut("6")
+Space & k::SpaceShortcut("7")
+Space & v::SpaceShortcut("8")
+Space & p::SpaceShortcut("9")
 
-#Space::SpaceShortcut("#{Space}", "#{Space}")
+Space & q::SpaceShortcut("{%}")
+Space & w::SpaceShortcut("{-}")
+Space & e::SpaceShortcut("{=}")
+Space & y::SpaceShortcut("{#}")
+Space & u::SpaceShortcut("{_}")
+Space & i::SpaceShortcut("{&}")
+Space & o::SpaceShortcut("{|}")
+Space & a::SpaceShortcut("{+}")
+Space & d::SpaceShortcut("{(}")
+Space & f::SpaceShortcut("{)}")
+Space & g::SpaceShortcut("{{}")
+Space & h::SpaceShortcut("{}}")
+Space & `;::SpaceShortcut("{$}")
+Space & '::SpaceShortcut("{``}")
+Space & z::SpaceShortcut("{@}")
+Space & x::SpaceShortcut("{\}")
+Space & c::SpaceShortcut("{^}")
+Space & b::SpaceShortcut("{*}")
+Space & ,::SpaceShortcut("{~}")
+Space & .::SpaceShortcut("{]}")
+Space & /::SpaceShortcut("{!}")
 
-CapsLock & f::CapsLockShortcut("{(}")
-CapsLock & d::CapsLockShortcut("{{}")
-CapsLock & g::CapsLockShortcut("{[}")
-CapsLock & s::CapsLockShortcut("{*}") 
-CapsLock & j::CapsLockShortcut("{=}")
-CapsLock & k::CapsLockShortcut("{-}")
-CapsLock & l::CapsLockShortcut("{+}")
-CapsLock & h::CapsLockShortcut("{^}")
-CapsLock & `;::CapsLockShortcut("{$}")
-CapsLock & u::CapsLockShortcut("{_}")
-CapsLock & r::CapsLockShortcut("{&}")
-CapsLock & p::CapsLockShortcut("{|}")
-CapsLock & i::CapsLockShortcut("{#}")
-CapsLock & e::CapsLockShortcut("{@}")
-CapsLock & b::CapsLockShortcut("{!}")
-CapsLock & y::CapsLockShortcut("{`}")
-CapsLock & n::CapsLockShortcut("{)}")
-CapsLock & m::CapsLockShortcut("{}}")
-CapsLock & o::CapsLockShortcut("{~}")
-CapsLock & c::CapsLockShortcut("^c")
-CapsLock & v::CapsLockShortcut("^v")
-CapsLock & w::CapsLockShortcut("^w")
-CapsLock & x::CapsLockShortcut("^x")
-CapsLock & t::CapsLockShortcut("^t")
+#Space::SpaceShortcut("#{Space}")
+
+CapsLock & Space::CapsShortcut("{Backspace}", True)
+
+CapsLock & a::CapsShortcut("^a")
+CapsLock & b::CapsShortcut("^b")
+CapsLock & c::CapsShortcut("^c")
+CapsLock & d::CapsShortcut("^d")
+CapsLock & e::CapsShortcut("^e")
+CapsLock & f::CapsShortcut("^f")
+CapsLock & g::CapsShortcut("^g")
+CapsLock & h::CapsShortcut("^h")
+CapsLock & i::CapsShortcut("^i")
+CapsLock & j::CapsShortcut("^j")
+CapsLock & k::CapsShortcut("^k")
+CapsLock & l::CapsShortcut("^l")
+CapsLock & m::CapsShortcut("^m")
+CapsLock & n::CapsShortcut("^n")
+CapsLock & o::CapsShortcut("^o")
+CapsLock & p::CapsShortcut("^p")
+CapsLock & q::CapsShortcut("^q")
+CapsLock & r::CapsShortcut("^r")
+CapsLock & s::CapsShortcut("^s")
+CapsLock & t::CapsShortcut("^t")
+CapsLock & u::CapsShortcut("^u")
+CapsLock & v::CapsShortcut("^v")
+CapsLock & w::CapsShortcut("^w")
+CapsLock & x::CapsShortcut("^x")
+CapsLock & y::CapsShortcut("^y")
+CapsLock & z::CapsShortcut("^z")
 
 Space UP::
 {
+    global SpaceShortcutFlag
     if(!SpaceShortcutFlag)
     {
         Send A_Space
@@ -72,6 +97,7 @@ SetCapsLockState "AlwaysOff"
 
 CapsLock UP::
 {
+    global CapsLockShortcutFlag
     if(!CapsLockShortcutFlag)
     {
         Send "{Esc}"
