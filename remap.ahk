@@ -1,5 +1,5 @@
-SpaceShortcutFlag := False
-CapsLockShortcutFlag := False
+global SpaceShortcutFlag := False
+global CapsLockShortcutFlag := False
 
 SpaceShortcut(keys)
 {
