@@ -1,21 +1,10 @@
-global SpaceShortcutFlag := False
-global CapsLockShortcutFlag := False
-
 SpaceShortcut(keys)
 {
-    global SpaceShortcutFlag
-    SpaceShortcutFlag := True
     Send keys
 }
 
 CapsShortcut(keys, setSpaceFlag := False)
 {
-    global SpaceShortcutFlag
-    global CapsLockShortcutFlag
-    if(setSpaceFlag) {
-        SpaceShortcutFlag := True
-    }
-    CapsLockShortcutFlag := True
     Send keys
 }
 
@@ -85,22 +74,12 @@ CapsLock & z::CapsShortcut("^z")
 
 Space UP::
 {
-    global SpaceShortcutFlag
-    if(!SpaceShortcutFlag)
-    {
-        Send A_Space
-    }
-    SpaceShortcutFlag := False
+    Send A_Space
 }
 
 SetCapsLockState "AlwaysOff"
 
 CapsLock UP::
 {
-    global CapsLockShortcutFlag
-    if(!CapsLockShortcutFlag)
-    {
-        Send "{Esc}"
-    }
-    CapsLockShortcutFlag := False
+    Send "{Esc}"
 }
