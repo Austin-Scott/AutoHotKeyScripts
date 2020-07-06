@@ -14,6 +14,16 @@ NumpadKey(num) {
     }
 }
 
+SymbolicKey(key, raw := true) {
+    if(raw) {
+        SendText key
+    } else {
+        Send key
+    }
+    global symbolLayerActive := False
+    ToolTip "", 0, 0
+}
+
 #HotIf !symbolLayerActive
 
 `;::
@@ -21,6 +31,33 @@ NumpadKey(num) {
     global symbolLayerActive := True
     ToolTip "Symbolic Layer", 0, 0
 }
+
+CapsLock & q::Send "^q"
+CapsLock & w::Send "^w"
+CapsLock & e::Send "^e"
+CapsLock & r::Send "^r"
+CapsLock & t::Send "^t"
+CapsLock & y::Send "^y"
+CapsLock & u::Send "^u"
+CapsLock & i::Send "^i"
+CapsLock & o::Send "^o"
+CapsLock & p::Send "^p"
+CapsLock & a::Send "^a"
+CapsLock & s::Send "^s"
+CapsLock & d::Send "^d"
+CapsLock & f::Send "^f"
+CapsLock & g::Send "^g"
+CapsLock & h::Send "^h"
+CapsLock & j::Send "{Down}"
+CapsLock & k::Send "{Up}"
+CapsLock & l::Send "^l"
+CapsLock & z::Send "^z"
+CapsLock & x::Send "^x"
+CapsLock & c::Send "^c"
+CapsLock & v::Send "^v"
+CapsLock & b::Send "^b"
+CapsLock & n::Send "^n"
+CapsLock & m::Send "^m"
 
 #HotIf
 
@@ -66,6 +103,48 @@ CapsLock & ,::
 +.::
 CapsLock & .::
 .::NumpadKey("3")
+
+BackSpace::SymbolicKey("{BackSpace}", False)
+Enter::SymbolicKey("{Enter}", False)
+Space::SymbolicKey(A_Space)
+Tab::SymbolicKey("{Tab}", False)
+
++a::SymbolicKey("<<")
+a::SymbolicKey("<")
+CapsLock & a::SymbolicKey("<=")
+
++s::SymbolicKey("[]")
+s::SymbolicKey("[")
+
++d::SymbolicKey("{}")
+d::SymbolicKey("{")
+
++f::SymbolicKey("()")
+f::SymbolicKey("(")
+
++g::SymbolicKey("**")
+g::SymbolicKey("*")
+CapsLock & g::SymbolicKey("->")
+
++h::SymbolicKey("=>")
+h::SymbolicKey("^")
+CapsLock & h::SymbolicKey("!")
+
+'::SymbolicKey("$")
+CapsLock & '::SymbolicKey("#")
+
++z::SymbolicKey(">>")
+z::SymbolicKey(">")
+CapsLock & z::SymbolicKey(">=")
+
+x::SymbolicKey("]")
+
+c::SymbolicKey("}")
+
+v::SymbolicKey(")")
+
+
+
 
 #HotIf
 
