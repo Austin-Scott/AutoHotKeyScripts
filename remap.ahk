@@ -50,8 +50,8 @@ CapsLock & g::Send "^g"
 CapsLock & h::Send "{Backspace}"
 CapsLock & j::Send "{Down}"
 CapsLock & k::Send "{Up}"
-CapsLock & l::Send "^l"
-CapsLock & `;::Send "{Enter}"
+CapsLock & l::Send "{Enter}"
+CapsLock & `;::Send ";"
 CapsLock & z::Send "^z"
 CapsLock & x::Send "^x"
 CapsLock & c::Send "^c"
@@ -59,6 +59,8 @@ CapsLock & v::Send "^v"
 CapsLock & b::Send "^b"
 CapsLock & n::Send "^n"
 CapsLock & m::Send "^m"
+CapsLock & ,::Send "{Left}"
+CapsLock & .::Send "{Right}"
 
 #HotIf
 
@@ -110,12 +112,11 @@ Enter::SymbolicKey("{Enter}", False)
 Space::SymbolicKey(A_Space)
 Tab::SymbolicKey("{Tab}", False)
 
-q::SymbolicKey("%")
-CapsLock & q::SymbolicKey("~")
++q::SymbolicKey("~~")
+q::SymbolicKey("~")
 
 +w::SymbolicKey("--")
 w::SymbolicKey("-")
-CapsLock & w::SymbolicKey("_")
 
 +e::SymbolicKey("==")
 e::SymbolicKey("=")
@@ -134,17 +135,20 @@ CapsLock & y::SymbolicKey("``.")
 +p::SymbolicKey("||")
 p::SymbolicKey("|")
 
++[::SymbolicKey("%%")
+[::SymbolicKey("%")
+
 +a::SymbolicKey("<<")
 a::SymbolicKey("<")
 CapsLock & a::SymbolicKey("<=")
 
-+s::SymbolicKey("[]")
-s::SymbolicKey("[")
++s::SymbolicKey("__")
+s::SymbolicKey("_")
 CapsLock & s::SymbolicKey("``[")
 
 +d::SymbolicKey("{}")
 d::SymbolicKey("{")
-CapsLock & d::SendText("{")
+CapsLock & d::SymbolicKey("!")
 
 +f::SymbolicKey("()")
 f::SymbolicKey("(")
@@ -154,10 +158,11 @@ CapsLock & f::SymbolicKey("``<")
 g::SymbolicKey("*")
 CapsLock & g::SymbolicKey("->")
 
-+h::SymbolicKey("=>")
++h::SymbolicKey("^^")
 h::SymbolicKey("^")
-CapsLock & h::SymbolicKey("!")
+CapsLock & h::SymbolicKey("=>")
 
++'::SymbolicKey("$$")
 '::SymbolicKey("$")
 CapsLock & '::SymbolicKey("#")
 
@@ -169,7 +174,6 @@ x::SymbolicKey("]")
 CapsLock & x::SymbolicKey("``]")
 
 c::SymbolicKey("}")
-CapsLock & c::SendText("}")
 
 v::SymbolicKey(")")
 CapsLock & v::SymbolicKey("``>")
@@ -178,8 +182,6 @@ CapsLock & v::SymbolicKey("``>")
 b::SymbolicKey("@")
 
 /::SymbolicKey("\")
-
-
 
 
 #HotIf
